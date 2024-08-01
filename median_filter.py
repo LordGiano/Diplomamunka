@@ -5,7 +5,7 @@ import argparse
 parser = argparse.ArgumentParser(description='Háttér kivonás képeken és videókon az OpenCV dokumentáció alapján.')
 parser.add_argument('--input', type=str, help='Path to a video or a sequence of image.', default='videos\\Rat2\\00.21.38-00.26.49[M][0@0][0].dav')
 #parser.add_argument('--algo', type=str, help='Background subtraction method (KNN, MOG2).', default='MOG2')
-parser.add_argument('--algo', type=str, help='Background subtraction method (KNN, MOG2).')  #KNN
+parser.add_argument('--algo', type=str, help='Background subtraction method (KNN, MOG2).')  # KNN
 args = parser.parse_args()
 
 # Create Background Subtractor objects
@@ -25,8 +25,11 @@ while True:
     if frame is None:
         break
 
+    # Apply median filter
+    median_filtered_frame = cv.medianBlur(frame, 5)
+
     # Update the background model and get the foreground mask
-    fgMask = backSub.apply(frame)
+    fgMask = backSub.apply(median_filtered_frame)
 
     # Extract the foreground in color
     fgColor = cv.bitwise_and(frame, frame, mask=fgMask)
