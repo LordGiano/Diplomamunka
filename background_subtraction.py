@@ -5,7 +5,7 @@ import argparse
 parser = argparse.ArgumentParser(description='Háttér kivonás kipeken és videókon az OpenCV dokumentáció alapján.')
 parser.add_argument('--input', type=str, help='Path to a video or a sequence of image.', default='videos\\Rat1\\02.00.19-02.00.48[M][0@0][0].dav')
 #parser.add_argument('--algo', type=str, help='Background subtraction method (KNN, MOG2).', default='MOG2')
-parser.add_argument('--algo', type=str, help='Background subtraction method (KNN, MOG2).') #KNN pls
+parser.add_argument('--algo', type=str, help='Background subtraction method (KNN, MOG2).') #KNN
 args = parser.parse_args()
 
 ## [create]
