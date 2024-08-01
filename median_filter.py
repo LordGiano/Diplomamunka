@@ -2,10 +2,12 @@ from __future__ import print_function
 import cv2 as cv
 import argparse
 
-parser = argparse.ArgumentParser(description='Háttér kivonás képeken és videókon az OpenCV dokumentáció alapján.')
+parser = argparse.ArgumentParser(description='Háttér kivonás képeken és videókon az OpenCV dokumentáció alapján. '
+                                             'Színes megjelenítés. '
+                                             'Median filter alkalmazása.')
 parser.add_argument('--input', type=str, help='Path to a video or a sequence of image.', default='videos\\Rat2\\00.21.38-00.26.49[M][0@0][0].dav')
 #parser.add_argument('--algo', type=str, help='Background subtraction method (KNN, MOG2).', default='MOG2')
-parser.add_argument('--algo', type=str, help='Background subtraction method (KNN, MOG2).')  # KNN
+parser.add_argument('--algo', type=str, help='Background subtraction method (KNN, MOG2).')  #KNN
 args = parser.parse_args()
 
 # Create Background Subtractor objects
