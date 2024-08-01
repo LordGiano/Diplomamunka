@@ -7,6 +7,7 @@ parser.add_argument('--input', type=str, help='Path to a video or a sequence of 
 #parser.add_argument('--algo', type=str, help='Background subtraction method (KNN, MOG2).', default='MOG2')
 parser.add_argument('--algo', type=str, help='Background subtraction method (KNN, MOG2).') #KNN
 args = parser.parse_args()
+#működjééé mááá
 
 ## [create]
 #create Background Subtractor objects
