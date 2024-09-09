@@ -12,7 +12,16 @@ args = parser.parse_args()
 if args.algo == 'MOG2':
     backSub = cv.createBackgroundSubtractorMOG2()
 else:
-    backSub = cv.createBackgroundSubtractorKNN()
+    #backSub = cv.createBackgroundSubtractorKNN()
+    #backSub = cv.createBackgroundSubtractorKNN(detectShadows=False)
+    #default values: hsitory - 500, dist2Threshold - 400.0, detectShadows - true
+    #backSub = cv.createBackgroundSubtractorKNN(history=100) # kisebb
+    #backSub = cv.createBackgroundSubtractorKNN(history=1000)  # nagyobb
+    #backSub = cv.createBackgroundSubtractorKNN(dist2Threshold=100) # kisebb
+    #backSub = cv.createBackgroundSubtractorKNN(dist2Threshold=1000) # nagyobb
+    #backSub = cv.createBackgroundSubtractorKNN(history=500, dist2Threshold=2000, detectShadows=False) # ez jónak tűnik
+    #backSub = cv.createBackgroundSubtractorKNN(history=100, dist2Threshold=2000, detectShadows=False) # ha nagy az árnyékos területek aránya, akkor a patkány hajlamos eltűnni
+    backSub = cv.createBackgroundSubtractorKNN(history=1500, dist2Threshold=3000, detectShadows=False) # egész szép eredményt tud adni
 
 # Capture the input video
 capture = cv.VideoCapture(cv.samples.findFileOrKeep(args.input))
@@ -37,8 +46,10 @@ while True:
                cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0))
 
     # Show the current frame and the color foreground mask
-    cv.imshow('Frame', frame)
+    #cv.imshow('Frame', frame)
     cv.imshow('FG Mask', fgColor)
+    #cv.imshow('Fg mask', fgMask)
+    #adattípus, értékek megnézése
 
     keyboard = cv.waitKey(30)
     if keyboard == 'q' or keyboard == 27:
