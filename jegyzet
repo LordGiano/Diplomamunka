@@ -1,0 +1,26 @@
+medián szűrés képek csoportjára
+nyitás-zárás operátor: pixeles zajokra
+
+kimenet milyen értékek
+background:
+    #adattípus, értékek megnézése
+    só-bors zaj eltűntetése
+        videó exportálása, képek lementése
+    remove salt-pepper noise
+
+maszk megjelenítése
+
+https://stackoverflow.com/questions/43630293/what-are-createbackgroundsubtractorknn-parameters-in-opencv-c
+paraméterekkel játszani
+
+-------------------------------------------------------------------------------------------------
+fém felület, tükröződés
+többi beépített háttérkivonást kipróbálni
+elasztikus (3D) modell - utánajárni
+neurális háló - objektum detektálás, patkány - bounding box vagy körbe is tudja-e rajzolni
+    occlusion - takarás
+        partial occlusion
+
+cél: minden egyes képkockán ahol a patkány mozog a patkányt, csakis a patkányt szegmentálni
+    első rácsok, vagyolással eltárolni egy olyan képet/maszkot - ez lesz fekete
+        legutolsó képkocka elmentése, elküldése emailben
