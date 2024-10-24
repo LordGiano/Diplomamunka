@@ -48,7 +48,8 @@ while True:
     # Show the current frame and the color foreground mask
     #cv.imshow('Frame', frame)
     cv.imshow('FG Mask', fgColor)
-    #cv.imshow('Fg mask', fgMask)
+    cv.imshow('Fg mask', fgMask)
+    # imshow - folyamatossan frissülő előzményekkel terhelt maszk megjelenítése
     #adattípus, értékek megnézése
 
     keyboard = cv.waitKey(30)
