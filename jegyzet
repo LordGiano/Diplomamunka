@@ -24,3 +24,15 @@ neurális háló - objektum detektálás, patkány - bounding box vagy körbe is
 cél: minden egyes képkockán ahol a patkány mozog a patkányt, csakis a patkányt szegmentálni
     első rácsok, vagyolással eltárolni egy olyan képet/maszkot - ez lesz fekete
         legutolsó képkocka elmentése, elküldése emailben
+
+-------------------------------------------------------------------------------------------------
+2024.11.14:
+background_subtr_comparison.py
+összehasonlítás update: legjobb paraméterezések alapján
+
+grid_mask
+grid_mask[thresh_diff > 0] = [255, 255, 255] miért 3 csatornás?
+fgMask = backSub.apply(frame) nincs használva
+    melyik képkocka tartománytól használható?
+
+só-bors zaj eltávolítással kiegészíteni a background substractort

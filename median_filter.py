@@ -6,17 +6,16 @@ parser = argparse.ArgumentParser(description='Háttér kivonás képeken és vid
                                              'Színes megjelenítés. '
                                              'Median filter alkalmazása.')
 parser.add_argument('--input', type=str, help='Path to a video or a sequence of image.', default='videos\\Rat2\\00.21.38-00.26.49[M][0@0][0].dav')
-#parser.add_argument('--algo', type=str, help='Background subtraction method (KNN, MOG2).', default='MOG2')
-parser.add_argument('--algo', type=str, help='Background subtraction method (KNN, MOG2).')  #KNN
+parser.add_argument('--algo', type=str, help='Background subtraction method (KNN, MOG2).')  # KNN vagy MOG2
 args = parser.parse_args()
 
-# Create Background Subtractor objects
+# Háttér kivonó objektum létrehozása
 if args.algo == 'MOG2':
     backSub = cv.createBackgroundSubtractorMOG2()
 else:
     backSub = cv.createBackgroundSubtractorKNN()
 
-# Capture the input video
+# Videó megnyitása
 capture = cv.VideoCapture(cv.samples.findFileOrKeep(args.input))
 if not capture.isOpened():
     print('Unable to open: ' + args.input)
@@ -27,22 +26,27 @@ while True:
     if frame is None:
         break
 
-    # Apply median filter
-    median_filtered_frame = cv.medianBlur(frame, 5)
+    # Képkocka méretének csökkentése 20%-kal
+    width = int(frame.shape[1] * 0.8)
+    height = int(frame.shape[0] * 0.8)
+    resized_frame = cv.resize(frame, (width, height))
 
-    # Update the background model and get the foreground mask
+    # Median szűrő alkalmazása
+    median_filtered_frame = cv.medianBlur(resized_frame, 7)
+
+    # Háttérmodell frissítése és a maszk létrehozása
     fgMask = backSub.apply(median_filtered_frame)
 
-    # Extract the foreground in color
-    fgColor = cv.bitwise_and(frame, frame, mask=fgMask)
+    # Színes előtér kinyerése
+    fgColor = cv.bitwise_and(resized_frame, resized_frame, mask=fgMask)
 
-    # Get the frame number and write it on the current frame
-    cv.rectangle(frame, (10, 2), (100, 20), (255, 255, 255), -1)
-    cv.putText(frame, str(capture.get(cv.CAP_PROP_POS_FRAMES)), (15, 15),
+    # Keret számának megjelenítése
+    cv.rectangle(resized_frame, (10, 2), (100, 20), (255, 255, 255), -1)
+    cv.putText(resized_frame, str(capture.get(cv.CAP_PROP_POS_FRAMES)), (15, 15),
                cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0))
 
-    # Show the current frame and the color foreground mask
-    cv.imshow('Frame', frame)
+    # Jelenlegi keret és a színes előtér maszk megjelenítése
+    cv.imshow('Frame', resized_frame)
     cv.imshow('FG Mask', fgColor)
 
     keyboard = cv.waitKey(30)

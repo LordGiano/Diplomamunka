@@ -33,4 +33,4 @@ def play_dav_video(file_path):
     cv2.destroyAllWindows()
 
 # Használat példa
-play_dav_video('videos\\Rat1\\01.08.17-01.08.37[M][0@0][0].dav')
+play_dav_video('videos\\Rat2\\00.21.38-00.26.49[M][0@0][0].dav')
