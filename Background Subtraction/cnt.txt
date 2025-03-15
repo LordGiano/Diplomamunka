@@ -1,0 +1,20 @@
+CNT paraméterek:
+- minPixelStability: A minimális idő, amíg egy pixelt stabilnak kell tekinteni. Növelésével csökken a zaj, de lassabban reagál a változásokra, csökkentésével gyorsabb lesz, de zajosabb.
+- maxPixelStability: A maximális idő, amíg egy pixelt stabilnak lehet tekinteni. Növelésével lassabban frissül a háttér, csökkentésével gyorsabban, de kevésbé lesz stabil.
+- useHistory: Szabályozza, hogy az algoritmus használja-e a korábbi képkockákat. Bekapcsolva pontosabb, de lassabb; kikapcsolva gyorsabb, de kevésbé pontos.
+- isParallel: Engedélyezi a párhuzamos feldolgozást. Bekapcsolva gyorsabb, de több erőforrást igényel; kikapcsolva lassabb, de kevesebb erőforrást használ.
+
+Tapasztalatok:
+- minPixelStability: ???
+- maxPixelStability: ???
+- useHistory:
+    False: kevés mozgás esetén a patkány hajlamos "eltűnni"
+    True: bentmaradnak olyan "foltok" is időnként, ami nem a patkány, hanem egy terület/tárgy amivel a patkány érintkezett
+- isParallel: nem vettem észre eltérést az eredményen attól fóggően, hogy be volt-e kapcsolva (talán max egy nagyon picikét lassabb, de ez sem észrevehető)
+
+
+Források:
+https://sagi-z.github.io/BackgroundSubtractorCNT/doxygen/html/
+https://www.theimpossiblecode.com/blog/fastest-background-subtraction-opencv/
+https://docs.opencv.org/4.x/d2/d55/group__bgsegm.html
+https://docs.opencv.org/4.x/de/dca/classcv_1_1bgsegm_1_1BackgroundSubtractorCNT.html

@@ -1,0 +1,10 @@
+GMG paraméterek:
+- initializationFrames:  Az algoritmus az itt megadott számú képkockát (pl. 120) használja a háttérmodell tanítására. Növelésével pontosabb háttérmodell készíthető, de hosszabb ideig tart az inicializáció. Csökkentésével gyorsabbá válik, de kevésbé pontos lehet.
+- decisionThreshold: A küszöbérték, amely meghatározza, hogy egy képpont a háttérhez vagy az előtérhez tartozik. Növelésével kevesebb zaj és téves riasztás érhető el, de a kisebb mozgások kimaradhatnak. Csökkentésével érzékenyebbé válik, de több lehet a zaj.
+
+Tapasztalatok:
+- initializationFrames: 200 (kb)
+- decisionThreshold: 0.7
+Bármilyen beállítás mellett zajos és "pacás" eredményt ad. Nem éleesek a patkány vonalai.
+Nem stabil. A patkány el tud tűnni és időnként (mondjuk egy gyors de rövid fényviszony változás alkalmával) nagyon zajos is tud lenni. A paraméterek állítgatása nem javított ezeken a hibákon.
+A trashold értékének állításával igazából amellett kell dönteni, hogy a zaj legyen kicsi vagy a patkány kivehető.

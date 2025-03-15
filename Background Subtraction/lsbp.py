@@ -9,10 +9,10 @@ import datetime
 parser = argparse.ArgumentParser(description='LSBP háttérkivonási módszer alkalmazása.')
 parser.add_argument('--input', type=str, help='Path to a video or a sequence of image.',
                     default='../videos/Rat1/08.07.02-08.09.03[M][0@0][0].dav')
-parser.add_argument('--LSBPRadius', type=int, help='Radius for LSBP operator.', default=16)
-parser.add_argument('--Tlower', type=float, help='Lower threshold for LSBP.', default=2.0)
-parser.add_argument('--Tupper', type=float, help='Upper threshold for LSBP.', default=32.0)
-parser.add_argument('--minCount', type=int, help='Minimum count for LSBP.', default=2)
+parser.add_argument('--LSBPRadius', type=int, help='Radius for LSBP operator.', default=25) #16
+parser.add_argument('--Tlower', type=float, help='Lower threshold for LSBP.', default=6.0) #2.0
+parser.add_argument('--Tupper', type=float, help='Upper threshold for LSBP.', default=30.0) #32.0
+parser.add_argument('--minCount', type=int, help='Minimum count for LSBP.', default=1) #2
 args = parser.parse_args()
 
 # LSBP háttérkivonási módszer létrehozása a paraméterekkel

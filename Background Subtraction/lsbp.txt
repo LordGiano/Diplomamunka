@@ -1,0 +1,13 @@
+LSBP paraméterek:
+- LSBPRadius: Meghatározza a lokális ablak méretét, amelyen belül a bináris mintázatokat számítják. Nagyobb érték stabilabb, de lassabb működést eredményez, míg kisebb érték érzékenyebb lehet kisebb mozgásokra.
+- Tlower: Az intenzitáskülönbség alsó küszöbértéke, amely alatt a képpontokat háttérnek tekinti. A kisebb érték érzékenyebbé teszi az algoritmust.
+- Tupper: Az intenzitáskülönbség felső küszöbértéke, amely felett a képpontokat előtérként azonosítja. A nagyobb érték segít csökkenteni a téves detektálásokat.
+- minCount: Megadja, hogy hány alkalommal kell egy képpontnak háttérként megjelennie, mielőtt a háttérmodell részévé válik. Magasabb érték stabilabb háttérmodellhez vezet, de lassítja az adaptációt.
+
+Tapasztalatok:
+- LSBPRadius: 25
+- Tlower: 6.0
+- Tupper: 30.0
+- minCount: 1
+Nagyon pacás, a rácsok közti részeket is előtérként értelmezi. A patkánynak nincs patkány alakja.
+A rácsok nagyon belezavarnak a háttérkivonáshoz.

@@ -9,9 +9,9 @@ import datetime
 parser = argparse.ArgumentParser(description='MOG2 háttérkivonási módszer alkalmazása.')
 parser.add_argument('--input', type=str, help='Path to a video or a sequence of image.',
                     default='../videos/Rat1/08.07.02-08.09.03[M][0@0][0].dav')
-parser.add_argument('--history', type=int, help='History parameter for MOG2.', default=500)
-parser.add_argument('--varThreshold', type=float, help='Variance threshold for MOG2.', default=16)
-parser.add_argument('--detectShadows', type=bool, help='Detect shadows in MOG2.', default=True)
+parser.add_argument('--history', type=int, help='History parameter for MOG2.', default=1500) #500
+parser.add_argument('--varThreshold', type=float, help='Variance threshold for MOG2.', default=25) #16
+parser.add_argument('--detectShadows', type=bool, help='Detect shadows in MOG2.', default=False) #True
 args = parser.parse_args()
 
 # MOG2 háttérkivonási módszer létrehozása a paraméterekkel
@@ -83,6 +83,12 @@ while True:
 
         # Só-bors zajszűrés
         filtered_fgMask = cv.medianBlur(fgMask, 5)
+
+        # Morfológiai szűrés (kis zajok és rácsok eltávolítása)
+        kernel = cv.getStructuringElement(cv.MORPH_ELLIPSE, (3, 3))  # Kicsi, 3x3-as ellipszis kernel
+        filtered_fgMask = cv.morphologyEx(filtered_fgMask, cv.MORPH_OPEN,
+                                          kernel)  # Nyitás a vékony zajok eltávolítására
+        filtered_fgMask = cv.morphologyEx(filtered_fgMask, cv.MORPH_CLOSE, kernel)  # Zárás a kisebb lyukak kitöltésére
 
         # Az aktuális frame-ek tárolása a szünethez
         last_frame = frame.copy()

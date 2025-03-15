@@ -8,8 +8,8 @@ import os
 parser = argparse.ArgumentParser(description='GMG háttérkivonási módszer alkalmazása.')
 parser.add_argument('--input', type=str, help='Path to a video or a sequence of image.',
                     default='../videos/Rat1/08.07.02-08.09.03[M][0@0][0].dav')
-parser.add_argument('--initializationFrames', type=int, help='Number of initialization frames for GMG.', default=120)
-parser.add_argument('--decisionThreshold', type=float, help='Decision threshold for GMG.', default=0.8)
+parser.add_argument('--initializationFrames', type=int, help='Number of initialization frames for GMG.', default=200)
+parser.add_argument('--decisionThreshold', type=float, help='Decision threshold for GMG.', default=0.7)
 args = parser.parse_args()
 
 # GMG háttérkivonási módszer létrehozása a paraméterekkel

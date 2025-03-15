@@ -9,15 +9,15 @@ import datetime
 parser = argparse.ArgumentParser(description='GSOC háttérkivonási módszer alkalmazása.')
 parser.add_argument('--input', type=str, help='Path to a video or a sequence of image.',
                     default='../videos/Rat1/08.07.02-08.09.03[M][0@0][0].dav')
-parser.add_argument('--mc', type=bool, help='Use motion compensation in GSOC.', default=True)
-parser.add_argument('--nSamples', type=int, help='Number of samples in GSOC.', default=20)
-parser.add_argument('--replaceRate', type=float, help='Replace rate for GSOC.', default=0.003)
-parser.add_argument('--propagationRate', type=float, help='Propagation rate for GSOC.', default=0.01)
-parser.add_argument('--hitsThreshold', type=int, help='Hits threshold for GSOC.', default=32)
-parser.add_argument('--alpha', type=float, help='Alpha parameter for GSOC.', default=0.01)
-parser.add_argument('--beta', type=float, help='Beta parameter for GSOC.', default=0.0022)
-parser.add_argument('--blinkingSupressionDecay', type=float, help='Blinking suppression decay in GSOC.', default=0.1)
-parser.add_argument('--blinkingSupressionMultiplier', type=float, help='Blinking suppression multiplier in GSOC.', default=0.1)
+parser.add_argument('--mc', type=bool, help='Use motion compensation in GSOC.', default=False) #True
+parser.add_argument('--nSamples', type=int, help='Number of samples in GSOC.', default=20) #20
+parser.add_argument('--replaceRate', type=float, help='Replace rate for GSOC.', default=0.005) #0.003
+parser.add_argument('--propagationRate', type=float, help='Propagation rate for GSOC.', default=0.03) #0.01
+parser.add_argument('--hitsThreshold', type=int, help='Hits threshold for GSOC.', default=32) #32
+parser.add_argument('--alpha', type=float, help='Alpha parameter for GSOC.', default=0.01) #0.01
+parser.add_argument('--beta', type=float, help='Beta parameter for GSOC.', default=0.0022) #0.0022
+parser.add_argument('--blinkingSupressionDecay', type=float, help='Blinking suppression decay in GSOC.', default=0.1) #0.1
+parser.add_argument('--blinkingSupressionMultiplier', type=float, help='Blinking suppression multiplier in GSOC.', default=0.1) #0.1
 args = parser.parse_args()
 
 # GSOC háttérkivonási módszer létrehozása a paraméterekkel

@@ -4,7 +4,7 @@ import argparse
 import numpy as np
 
 parser = argparse.ArgumentParser(description='Háttér kivonás képeken és videókon az OpenCV dokumentáció alapján. Színes megjelenítés.')
-parser.add_argument('--input', type=str, help='Path to a video or a sequence of image.', default='videos\\Rat2\\08.06.59-08.08.52[M][0@0][0].dav')
+parser.add_argument('--input', type=str, help='Path to a video or a sequence of image.', default='..\\videos\\Rat2\\08.06.59-08.08.52[M][0@0][0].dav')
 #'videos\\Rat2\\00.21.38-00.26.49[M][0@0][0].dav'
 #videos\\Rat2\\22.20.51-22.27.45[M][0@0][0].dav
 #videos\\Rat2\\08.06.59-08.08.52[M][0@0][0].dav

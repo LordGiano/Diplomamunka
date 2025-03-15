@@ -1,0 +1,41 @@
+Jelenleg:
+    - háttérkivonás
+    - só-bors (és akár morfológiai) szűrés
+
+Következő lépések:
+    - Ketrec maszkjának meghatározása az összes kamerára (egyenként ?)
+    - Inpainting a maszk alapján
+    - DeepLabCut:
+        - Az inpaintinggel létrehozott képek/videók segítségével a DeepLabCut betanítása (framek kivágása X időközönként)
+        - A modell futtatása a videókon.
+            (A modell a patkány testrészeinek mozgását követi, és képkockánként koordinátákat generál.)
+    - SimBA:
+        - A DeepLabCut által generált tesztrész koordinátákat használja fel.
+        - A SimBA segítségével azonosítja a viselkedési mintákat, például pihenést, mozgást, vagy sztereotipikus viselkedést.
+
+https://docs.opencv.org/4.x/d1/dc5/tutorial_background_subtraction.html
+https://docs.opencv.org/4.x/df/d3d/tutorial_py_inpainting.html
+https://pyimagesearch.com/2020/05/18/image-inpainting-with-opencv-and-python/
+
+https://deeplabcut.github.io/DeepLabCut/docs/installation.html
+https://github.com/DeepLabCut/DeepLabCut/blob/main/docs/standardDeepLabCut_UserGuide.md
+
+ https://github.com/sgoldenlab/simba
+ https://github.com/sgoldenlab/simba/blob/master/docs/SimBA_Installation.md
+
+ DeepLabCut betanításának mélyebben utánanézni
+ Videók kellenek-e még
+ Maszkok meghatározása kameránként -> Impainting
+ Nyúl Lacis email
+ háttérkivonás eredményeinek számszerűsítése
+
+2025.03.05:
+    DeepLabCut
+    LaMa
+    maszkok módosítása/kivágása
+    mappa helyett videónként
+
+2025.03.12:
+    egyéni maszkokhoz ötlet: history számának megfelelő mennyiségű 1. képkocka létrehozása
+
+    minden videó váltáskor új háttérmodell

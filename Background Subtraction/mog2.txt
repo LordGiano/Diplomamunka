@@ -1,0 +1,15 @@
+MOG2 paraméterek:
+- history: Az algoritmus hány képkockát használ a háttérmodellezés során. Nagyobb érték stabilabb háttérmodellezést biztosít, de lassabban alkalmazkodik a változásokhoz. Kisebb érték gyorsabb adaptációt eredményez, de érzékenyebbé válik a zajra és a gyorsan mozgó objektumokra.
+- varThreshold: A variancia küszöbértéke, amely meghatározza, hogy egy pixelérték mikor számít eltérésnek a háttérmodelltől. Alacsonyabb érték érzékenyebb detektálást tesz lehetővé, míg magasabb érték csökkenti a téves riasztásokat (pl. zaj vagy árnyék miatt).
+- detectShadows: Beállítja, hogy az algoritmus felismerje-e az árnyékokat. Ha engedélyezett (True), az árnyékokat külön osztályozza, de ez zajos környezetben pontatlanságokat okozhat. Ha tiltott (False), egyszerűbbé és gyorsabbá válhat a feldolgozás.
+
+Tapasztalatok:
+- history:
+- varThreshold:
+- detectShadows: False - nincs szükség
+
+A zajos frameket paraméterek alapján nem lehet értelmesen csökkenteni, csak úgy, hogy a patkány körvonalai "blurred" legyenek.
+A medianBlur 7-es kernel mérete az egyetlen olyan megoldás ami a zajokat "kényelmesen" minimalizálja.
+Szűrő nélkül sokkal (!) jobban kivető a patkány, de az eredmény is jóval zajosabb!
+
+Morfológiai szűrést alkalmazni a többire is?

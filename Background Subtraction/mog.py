@@ -9,10 +9,10 @@ import datetime
 parser = argparse.ArgumentParser(description='MOG háttérkivonási módszer alkalmazása.')
 parser.add_argument('--input', type=str, help='Path to a video or a sequence of image.',
                     default='../videos/Rat1/08.07.02-08.09.03[M][0@0][0].dav')
-parser.add_argument('--history', type=int, help='History parameter for MOG.', default=200)
-parser.add_argument('--nmixtures', type=int, help='Number of Gaussian mixtures for MOG.', default=5)
-parser.add_argument('--backgroundRatio', type=float, help='Background ratio for MOG.', default=0.7)
-parser.add_argument('--noiseSigma', type=float, help='Noise sigma for MOG.', default=0)
+parser.add_argument('--history', type=int, help='History parameter for MOG.', default=250) #200
+parser.add_argument('--nmixtures', type=int, help='Number of Gaussian mixtures for MOG.', default=3) #5
+parser.add_argument('--backgroundRatio', type=float, help='Background ratio for MOG.', default=0.5) #0.7
+parser.add_argument('--noiseSigma', type=float, help='Noise sigma for MOG.', default=0) #0
 args = parser.parse_args()
 
 # MOG háttérkivonási módszer létrehozása a paraméterekkel

@@ -1,0 +1,11 @@
+MOG paraméterek:
+- history: Meghatározza, hogy hány képkockát használ a modell a háttér detektálásához. Nagyobb érték stabilabb, de lassabban reagáló háttérmodellt eredményez, míg kisebb érték gyorsabb alkalmazkodást biztosít a változásokhoz.
+- nmixtures: A Gauss-eloszlások számát határozza meg a háttérmodellezéshez. Több eloszlás lehetővé teszi az összetettebb háttér kezelést, míg kevesebb eloszlás gyorsabb számítást eredményez egyszerűbb háttereknél.
+- backgroundRatio: A háttérmodellben lévő pixelek százalékát adja meg. Magasabb érték nagyobb biztonságot nyújt az előtér szétválasztásában, de hajlamos lehet az előtér pixelek egy részét háttérként kezelni.
+- noiseSigma: A zaj szintjének szabályozására szolgál. Nagyobb érték kevésbé érzékeny az apró zajokra, míg kisebb érték precízebb detektálást tesz lehetővé zajmentes környezetben.
+
+Tapasztalatok:
+- history: 250
+- nmixtures: 3
+- backgroundRatio: 0.5
+- noiseSigma: 0

@@ -1,0 +1,26 @@
+GSOC paraméterek:
+- mc: Mozgáskompenzáció engedélyezése vagy tiltása. Statikus kamerák esetén kikapcsolható a számítási igény csökkentése érdekében.
+- nSamples: A tárolt háttérminták száma egy pixelhez. Nagyobb érték precízebb háttérmodellezést eredményez, de növeli a memóriaigényt.
+- replaceRate: A háttérminták frissítési sebessége. Alacsony érték stabil hátteret biztosít, magasabb érték gyors alkalmazkodást eredményez.
+- propagationRate: A háttérinformáció terjedési sebessége a szomszédos pixelek között. Magasabb érték gyorsabb adaptációt biztosít dinamikus környezetben.
+- hitsThreshold: A háttérként való felismeréshez szükséges találatok száma. Magasabb érték stabilabb, de kevésbé érzékeny háttérmodellezést eredményez.
+- alpha: Az időbeli frissítés mértéke. Alacsony érték stabilabb háttérmodellt ad, míg magasabb érték gyorsan változó környezetben hasznos.
+- beta: A minta frissítési sebességének súlyozási tényezője. Lassú mozgásoknál kisebb érték ajánlott, gyors változásoknál magasabb.
+- blinkingSupressionDecay: A villódzáscsökkentés csillapításának sebessége. Magasabb érték gyorsabb csillapítást eredményez.
+- blinkingSupressionMultiplier: A villódzáscsökkentés erősségének szabályozása. Magasabb érték erősebb villódzáscsökkentést nyújt.
+
+Tapasztalatok:
+- mc: False - ha ki van kapcsolva, akkor sokkal gyorsabb a feldolgozás. Mivel statikus a háttér, ezért nincs szükség mozgáskompenzációra.
+- nSamples: 20
+- replaceRate: 0.005
+- propagationRate: 0.03
+- hitsThreshold: 32
+- alpha: 0.01
+- beta: 0.0022
+- blinkingSupressionDecay: 0.1
+- blinkingSupressionMultiplier: 0.1
+
+A patkány alakja inkább "pacás", nem egyértelműek a körvonalak.
+A rácsok nagyon bezavarnak, a patkány alakja a rácsok kockái között jelenik (vagy nem jelenik) meg.
+Pl: Ha a patkány farka 3 rácsba is belelóg, akkor mind a 3 rácskockát szinte teljesen kiszínezi.
+Ha csak a patkány feje mozog, akkor a teste el tud veszni.

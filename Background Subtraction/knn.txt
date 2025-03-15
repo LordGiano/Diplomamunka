@@ -1,0 +1,11 @@
+KNN paraméterek:
+- history: Ez határozza meg, hogy hány képkockát használjon az algoritmus a háttérmodellezéshez. Nagyobb érték esetén az algoritmus jobban alkalmazkodik a lassú változásokhoz, de több memóriát igényel. Kisebb érték gyorsabb alkalmazkodást eredményez, de kevésbé stabil háttérmodellt ad.
+- dist2Threshold: Ez az a távolságküszöb, amely meghatározza, hogy a pixel intenzitása mennyire lehet "közel" a háttérmodell értékeihez. Magasabb érték megengedőbb, így kevésbé érzékeny a kisebb változásokra, míg alacsonyabb érték szigorúbb előtérdetektálást biztosít.
+- detectShadows: Ez szabályozza, hogy az algoritmus detektálja-e az árnyékokat. Ha True, akkor az árnyékokat külön kezeli (általában szürke maszkként), ami hasznos, ha fontos a pontos előtérdetektálás. Ha False, az algoritmus figyelmen kívül hagyja az árnyékokat, ami egyszerűbb feldolgozást eredményezhet.
+
+Tapasztalatok:
+- history:
+- dist2Threshold:
+- detectShadows:
+
+A tükröződő felületeket is mozgásnak érzékeli, ha elmegy előtte a patkány.
