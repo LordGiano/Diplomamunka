@@ -7,8 +7,8 @@ import os
 parser = argparse.ArgumentParser(description='CNT háttérkivonási módszer alkalmazása.')
 parser.add_argument('--input', type=str, help='Path to a video or a sequence of image.',
                     default='../videos/Rat1/08.07.02-08.09.03[M][0@0][0].dav')
-parser.add_argument('--minPixelStability', type=int, help='Minimum pixel stability for CNT.', default=15)
-parser.add_argument('--maxPixelStability', type=int, help='Maximum pixel stability for CNT.', default=60)
+parser.add_argument('--minPixelStability', type=int, help='Minimum pixel stability for CNT.', default=30)
+parser.add_argument('--maxPixelStability', type=int, help='Maximum pixel stability for CNT.', default=1000)
 parser.add_argument('--useHistory', type=bool, help='Use history in CNT.', default=True)
 parser.add_argument('--isParallel', type=bool, help='Enable parallel processing in CNT.', default=True)
 args = parser.parse_args()
@@ -16,8 +16,8 @@ args = parser.parse_args()
 # CNT háttérkivonási módszer létrehozása a paraméterekkel
 backSub = cv.bgsegm.createBackgroundSubtractorCNT(minPixelStability=args.minPixelStability,
                                                   maxPixelStability=args.maxPixelStability,
-                                                  useHistory=int(args.useHistory),
-                                                  isParallel=int(args.isParallel))
+                                                  useHistory=bool(args.useHistory),
+                                                  isParallel=bool(args.isParallel))
 
 # Videó beolvasása
 capture = cv.VideoCapture(cv.samples.findFileOrKeep(args.input))

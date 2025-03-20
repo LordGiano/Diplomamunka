@@ -8,7 +8,7 @@ import datetime
 # Argumentum parser az input videó útvonalához
 parser = argparse.ArgumentParser(description='KNN háttérkivonási módszer alkalmazása.')
 parser.add_argument('--input', type=str, help='Path to a video or a sequence of image.',
-                    default='../videos/Rat1/08.07.02-08.09.03[M][0@0][0].dav')
+                    default='../videos/Rat2/01.08.14-01.08.30[M][0@0][0].dav')
 parser.add_argument('--history', type=int, help='History parameter for KNN.', default=800) #500
 parser.add_argument('--dist2Threshold', type=float, help='Distance threshold for KNN.', default=800) #400.0
 parser.add_argument('--detectShadows', type=bool, help='Detect shadows in KNN.', default=False) #True
