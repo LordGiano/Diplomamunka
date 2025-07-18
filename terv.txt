@@ -39,3 +39,67 @@ https://github.com/DeepLabCut/DeepLabCut/blob/main/docs/standardDeepLabCut_UserG
     egyéni maszkokhoz ötlet: history számának megfelelő mennyiségű 1. képkocka létrehozása
 
     minden videó váltáskor új háttérmodell
+
+2025.03.27:
+    dokumentációhoz:
+        van-e olyan háló ami patkány szegmentálásához vannak kialakítva/betanítva (meta AI)
+    más inpainting kipróbálása: LaMa, DeepFill v2
+    inpainting sebességének a mérése
+    alpha shape
+        a fekete fehér maszkon
+            (háttérkivonott videókra)
+    patkány nélküli háttérkép kialakítása/meghatározása a patkány szegmentálásához
+
+2025.03.31:
+    DeepLearning vs OpenCV (Telea/NS) összehasonlítása
+    patkány nélküli háttér
+
+    inpainting kiértékelés:
+        mennyire segíti a feladatot
+
+    maszkok legenerálása különböző háttérkivonási eljárások alapján (most a KNN-t használom)
+
+    use_cuda_if_available = True
+    device = torch.device('cuda' if torch.cuda.is_available()
+                          and use_cuda_if_available else 'cpu')
+    megnézni, hogy a torch.cuda miért nem elérhető
+        miért nem elérhető a CUDA, illetve hogyan lehet elérhetővé tenni
+    DeepFillv2 modell megindoklása
+
+    Sorrend:
+        háttérkivonós összehasonlítások (maszk+inpainting)
+        alpha shape
+        patkány nélküli háttér
+
+
+2025.04.08.
+    !!! maszk generálás medianos megoldással
+    alpha shape videó generálása maszkra (base + inpaint)
+    ??? torch működik-e GPU-n
+    alpha shape: NS vs TELEA vs LaMa vs DeepFill (framere)
+    extract largest contour -> nyitás-zárás
+        num_labels, labels, stats, centroids = cv2.connectedComponentsWithStats(image, connectivity=8)
+    base img - alpha shape
+        miért nem 1 alakzat van, miért 4?
+        -> alphashape könyvtár kezelni tudja a több különálló komponenst és MultiPolygon objektumot ad vissza, ezért láthatók különböző blobokat körülvevő vonalak.
+
+
+DOLGOZATBA:
+    - alpha shape (base vs inpainting)
+
+
+Dolgozat struktúrája:
+    1. alpha shape -> rossz eredmény
+    2. rácsok eltűntetése
+        morfológiai műveletekkel (nyitás-zárás)
+    3. inpainting
+    4. rács maszkja
+    5. inpainting videó generálás
+    6. alpha shape az inpaintingelt videón
+
+
+2025.04.24:
+    alpha shape:
+        - hogy van több poligon? ezt mi alapján határozza meg?
+            (alpha shape 1 poligon lehet)
+        - 

@@ -1,0 +1,21 @@
+Mind a 7 háttérkivonóval:
+    - maszkok létrehozása
+    - inpainting (OpenCV)
+
+Alpha shape:
+    - sima háttérkivont frameekkel
+    - inpaintingelt háttérkivonós framekkel
+
+
+Az Alkalmazott módszerek részhez ki szeretném fejteni az eddigi tapasztalataimat.
+
+Most menjünk tovább ezekkel a fejezetekkel: Rács maszkjainak meghatározása Patkány mozgási maszkja A rács maszkjának meghatározása
+
+Először térjünk ki rá, hogy erre miért is van szükség (rács maszkjának a meghatározása később az inpaintinghez kell)
+
+Valahogy írd bele azt is, hogy a rácsok sokszor takarják a patkány azon részeit, ahol a patkány alakjának széle (keze, lába, füle, stb)/kulcspontja (pl farok részleges vagy akár teljes hossza bizonyos helyzetekben, csuklója, stb)/egyéb részei hiányoznak
+
+A final.py-t ne írd bele. A függvények nevére sincs feltétlenül szükség. Inkább azt írd le, hogy a final.py-ban látottak alapján mi hogyan és miért működik, miért van rá szükség, stb
+
+
+

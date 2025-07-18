@@ -36,7 +36,7 @@ def process_video(video_path):
 
     capture.release()  # Videó lezárása
 
-    # Morfológiai műveletek a videó maszkon (simaítás)
+    # Morfológiai műveletek a videó maszkon
     if video_mask is not None:
         kernel = cv.getStructuringElement(cv.MORPH_RECT, (3, 3))
         video_mask = cv.morphologyEx(video_mask, cv.MORPH_CLOSE, kernel)

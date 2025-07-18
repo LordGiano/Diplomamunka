@@ -1,4 +1,0 @@
-ALPHA SHAPE:
-    Az alpha érték határozza meg, hogy milyen hosszú élek maradhatnak a Delaunay háromszögelésben - kisebb alpha érték szorosabb illeszkedést jelent, míg nagyobb alpha érték "lazább" illeszkedést és nagyobb valószínűséggel kapcsolja össze a különálló részeket.
-    A nagyobb alpha érték több élt fog megtartani a Delaunay háromszögelésből, és nagyobb valószínűséggel hidalta át a patkány különböző részei közötti réseket.
-    Ideális alpha érték több poligon esetén: 15-20
